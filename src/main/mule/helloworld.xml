@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="91a9957f-f0da-4659-91f5-7cf88c8806d5" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="helloworldFlow" doc:id="68ecfced-f5be-449c-ac4d-7116303c6963" >
+		<http:listener doc:name="Listener" doc:id="526ad335-8666-4167-b74b-ff4049541440" config-ref="HTTP_Listener_config" path="/sports"/>
+		<set-payload value='#["Hello OmiSomi"]' doc:name="Set Payload" doc:id="2d8d4ed7-db36-4240-a1e5-77b6ea7479ae" />
+	</flow>
+</mule>
